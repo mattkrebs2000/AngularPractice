@@ -6,13 +6,36 @@ import { Todo } from 'src/app/models/Todo';
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.css']
 })
+
 export class TodoItemComponent implements OnInit {
 
 @Input() todo: Todo;
 
   constructor() { }
-
-  ngOnInit(): void {
+  // tslint:disable-next-line: typedef
+  ngOnInit() {
   }
-
+// tslint:disable-next-line: typedef
+setClasses() {
+  // tslint:disable-next-line: prefer-const
+  let classes = {
+    todo: true,
+    'is-complete': this.todo.completed
+  // tslint:disable-next-line: semicolon
+  }
+  return classes;
 }
+
+// tslint:disable-next-line: typedef
+onToggle(todo){
+todo.completed = !todo.completed;
+}
+// tslint:disable-next-line: typedef
+onDelete(todo){
+console.log('delete');
+}
+}
+
+
+
+
